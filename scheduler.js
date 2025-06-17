@@ -19,6 +19,6 @@ cron.schedule('* * * * *',async()=>{
     }
     }
     catch(error){
- console.error('Auto Cancellation:',err);
+ console.error('Auto Cancellation:',error);
     }
 });
