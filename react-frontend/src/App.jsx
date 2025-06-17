@@ -11,7 +11,7 @@ import ProfileCard from './components/users/ProfileCard';
 import ChangePassword from './components/users/changePassword';
 import CoachPosition from './components/trainfeatures/CoachPosition';
 import AdminDashboard from './components/admin/AdminDashboard';
-import AdminLogin from './components/admin/adminLogin';
+import AdminLogin from'./components/admin/AdminLogin';
 import AllBookings from './components/admin/AllBookings';
 import AdminTrain from './components/admin/AdminTrain';
 import AboutDeveloper from './components/About/about';
