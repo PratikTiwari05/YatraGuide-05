@@ -16,11 +16,12 @@ function Login({ setUser }) {
     event.preventDefault();
 
     try {
-      const res = await fetch('/api/auth/login', {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ username, password })
       });
+
 
       let data = {};
       try {

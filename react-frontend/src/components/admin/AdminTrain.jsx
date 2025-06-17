@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import './AdminTrain.css'
+import './AdminTrain.css';
+
+const API = import.meta.env.VITE_BACKEND_URL;
+
 const AdminTrain = () => {
   const [trains, setTrains] = useState([]);
   const [newTrain, setNewTrain] = useState({
@@ -11,7 +14,7 @@ const AdminTrain = () => {
   // Fetch all trains
   const fetchTrains = async () => {
     try {
-      const res = await fetch('/api/trains');
+      const res = await fetch(`${API}/api/trains`);
       const data = await res.json();
       setTrains(data);
     } catch (err) {
@@ -26,7 +29,7 @@ const AdminTrain = () => {
       return;
     }
 
-    const res = await fetch('/api/admin/trains', {
+    const res = await fetch(`${API}/api/admin/trains`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(newTrain),
@@ -43,7 +46,7 @@ const AdminTrain = () => {
     const confirmDelete = window.confirm('Are you sure you want to delete this train?');
     if (!confirmDelete) return;
 
-    const res = await fetch(`/api/admin/trains/${id}`, {
+    const res = await fetch(`${API}/api/admin/trains/${id}`, {
       method: 'DELETE',
     });
 
@@ -104,7 +107,7 @@ const AdminTrain = () => {
                     onClick={() => deleteTrain(train.id)}
                     style={{ backgroundColor: 'red', color: 'white' }}
                   >
-                     Delete
+                    Delete
                   </button>
                 </td>
               </tr>

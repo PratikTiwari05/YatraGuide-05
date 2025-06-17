@@ -12,7 +12,7 @@ const ProfileCard = () => {
   useEffect(() => {
     const fetchProfile = async () => {
       try {
-        const res = await axios.get('/api/users/profile', {
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/users/profile`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
           }
@@ -28,7 +28,7 @@ const ProfileCard = () => {
 
   const handleSave = async () => {
     try {
-      await axios.patch('/api/users/profile', { name, email }, {
+     await axios.patch(`${import.meta.env.VITE_BACKEND_URL}/api/users/profile`, { name, email }, {
         headers: {
           Authorization: `Bearer ${localStorage.getItem('token')}`
         }

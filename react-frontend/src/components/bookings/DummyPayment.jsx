@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './DummyPayment.css';
 
+const API = import.meta.env.VITE_BACKEND_URL;
+
 const DummyPayment = () => {
   const [step, setStep] = useState(1);
   const [cardNumber, setCardNumber] = useState('');
@@ -18,42 +20,40 @@ const DummyPayment = () => {
     setStep(2);
   };
 
-const handleOtpSubmit = async () => {
-  if (!otp) {
-    alert('Please enter the OTP.');
-    return;
-  }
-
-  const bookingId = localStorage.getItem('bookingId');
-  if (!bookingId) {
-    alert('Booking ID not found. Please try booking again.');
-    return;
-  }
-
-  try {
-    const res = await fetch(`http://localhost:3000/api/bookings/${bookingId}/pay`, {
-      method: 'PATCH',
-      headers: {
-  'Content-Type': 'application/json',
-  Authorization: `Bearer ${localStorage.getItem('token')}`, // ✅ Add this
-},
-
-    });
-
-    const result = await res.json();
-
-    if (!res.ok) {
-      throw new Error(result.message || 'Payment update failed');
+  const handleOtpSubmit = async () => {
+    if (!otp) {
+      alert('Please enter the OTP.');
+      return;
     }
 
-    alert('✅ Payment completed successfully!');
-    localStorage.removeItem('bookingId'); // cleanup
-    navigate('/mybookings');
-  } catch (error) {
-    alert(`❌ Payment error: ${error.message}`);
-  }
-};
+    const bookingId = localStorage.getItem('bookingId');
+    if (!bookingId) {
+      alert('Booking ID not found. Please try booking again.');
+      return;
+    }
 
+    try {
+      const res = await fetch(`${API}/api/bookings/${bookingId}/pay`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
+
+      const result = await res.json();
+
+      if (!res.ok) {
+        throw new Error(result.message || 'Payment update failed');
+      }
+
+      alert('✅ Payment completed successfully!');
+      localStorage.removeItem('bookingId');
+      navigate('/mybookings');
+    } catch (error) {
+      alert(`❌ Payment error: ${error.message}`);
+    }
+  };
 
   return (
     <div className="payment-container">

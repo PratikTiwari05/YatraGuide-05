@@ -6,14 +6,16 @@ const CoachPosition = () => {
   const [trainNo, setTrainNo] = useState('');
   const [coachData, setCoachData] = useState(null);
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false); // new loading state
+  const [loading, setLoading] = useState(false);
+
+  const API = import.meta.env.VITE_BACKEND_URL; // ✅ env-based backend URL
 
   const handleFetch = async () => {
     setError('');
     setCoachData(null);
     setLoading(true);
     try {
-      const response = await axios.get(`http://localhost:3000/api/coach-position/${trainNo}`);
+      const response = await axios.get(`${API}/api/coach-position/${trainNo}`);
       const sortedCoaches = response.data.Coaches.sort((a, b) => parseInt(a.SerialNo) - parseInt(b.SerialNo));
       setCoachData({ ...response.data, Coaches: sortedCoaches });
     } catch (err) {

@@ -46,7 +46,7 @@ const Homepage = () => {
   }, [navigate]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/trains')
+   fetch(`${import.meta.env.VITE_BACKEND_URL}/api/trains`)
       .then((res) => res.json())
       .then((data) => setTrains(data))
       .catch((err) => console.error('Failed to fetch trains', err));
@@ -112,7 +112,7 @@ const Homepage = () => {
     };
 
     try {
-      const res = await fetch('http://localhost:3000/api/bookings', {
+     const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/bookings`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './AdminDashboard.css';
 
+const API = import.meta.env.VITE_BACKEND_URL;
+
 const AdminDashboard = () => {
   const [trains, setTrains] = useState([]);
   const [bookings, setBookings] = useState([]);
@@ -10,20 +12,19 @@ const AdminDashboard = () => {
   const navigate = useNavigate();
 
   const fetchBookings = async () => {
-    const res = await fetch('/api/admin/bookings');
+    const res = await fetch(`${API}/api/admin/bookings`);
     const data = await res.json();
     setBookings(data);
   };
 
   const fetchTrains = async () => {
-    const res = await fetch('/api/trains');
+    const res = await fetch(`${API}/api/trains`);
     const data = await res.json();
     setTrains(data);
   };
 
- 
   const handleAddTrain = async () => {
-    const res = await fetch('/api/admin/trains', {
+    const res = await fetch(`${API}/api/admin/trains`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(trainForm),
@@ -85,7 +86,9 @@ const AdminDashboard = () => {
                   <td>{b.user_id}</td>
                   <td>{b.train_id}</td>
                   <td>{b.seat}</td>
-                  <td className={b.status === 'booked' ? 'green' : 'red'}>{b.status.charAt(0).toUpperCase() + b.status.slice(1)}</td>
+                  <td className={b.status === 'booked' ? 'green' : 'red'}>
+                    {b.status.charAt(0).toUpperCase() + b.status.slice(1)}
+                  </td>
                 </tr>
               ))}
             </tbody>

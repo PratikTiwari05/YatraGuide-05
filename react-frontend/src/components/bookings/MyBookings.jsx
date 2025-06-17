@@ -4,6 +4,8 @@ import './MyBookings.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
+const API = import.meta.env.VITE_BACKEND_URL;
+
 const MyBookings = () => {
   const [bookings, setBookings] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -19,7 +21,7 @@ const MyBookings = () => {
         return;
       }
 
-      const response = await axios.get(`/api/bookings/user/${userId}`, {
+      const response = await axios.get(`${API}/api/bookings/user/${userId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -41,13 +43,12 @@ const MyBookings = () => {
   const handleCancel = async (bookingId) => {
     try {
       const token = localStorage.getItem('token');
-      await axios.delete(`/api/bookings/${bookingId}`, {
+      await axios.delete(`${API}/api/bookings/${bookingId}`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
       });
 
-      // Remove from state
       setBookings((prev) => prev.filter((b) => b.id !== bookingId));
       toast.success('Booking cancelled successfully!');
     } catch (err) {
@@ -61,7 +62,6 @@ const MyBookings = () => {
   if (bookings.length === 0) return <p className="no-bookings">No bookings found.</p>;
 
   return (
-
     <div className="my-bookings">
       <h2>My Bookings</h2>
       {bookings.map((booking) => (
@@ -76,7 +76,6 @@ const MyBookings = () => {
           </button>
         </div>
       ))}
-      
     </div>
   );
 };

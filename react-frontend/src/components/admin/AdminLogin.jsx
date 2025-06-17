@@ -1,9 +1,10 @@
-// src/pages/AdminLogin.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./AdminLogin.css";
 import trainBg from '../../assets/vande-bhara.jpg';
 import { toast } from 'react-toastify';
+
+const API = import.meta.env.VITE_BACKEND_URL;
 
 function AdminLogin() {
   const [username, setUsername] = useState('');
@@ -14,10 +15,10 @@ function AdminLogin() {
   const handleAdminLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await fetch('/api/admin/login', {
+      const res = await fetch(`${API}/api/admin/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password, secret:secretKey })
+        body: JSON.stringify({ username, password, secret: secretKey })
       });
 
       const data = await res.json();
@@ -46,7 +47,7 @@ function AdminLogin() {
       }}
     >
       <div className="center-box">
-        <h2 >Admin Login</h2>
+        <h2>Admin Login</h2>
         <form onSubmit={handleAdminLogin}>
           <input
             type="text"

@@ -11,7 +11,7 @@ import ProfileCard from './components/users/ProfileCard';
 import ChangePassword from './components/users/changePassword';
 import CoachPosition from './components/trainfeatures/CoachPosition';
 import AdminDashboard from './components/admin/AdminDashboard';
-import AdminLogin from'./components/admin/AdminLogin';
+import AdminLogin from './components/admin/AdminLogin';
 import AllBookings from './components/admin/AllBookings';
 import AdminTrain from './components/admin/AdminTrain';
 import AboutDeveloper from './components/About/about';
@@ -59,10 +59,11 @@ const App = () => {
   const handlePayment = async () => {
     if (!bookingId) return alert('No booking to pay for.');
     try {
-      const res = await fetch(`http://localhost:3000/api/bookings/${bookingId}/pay`, {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_URL}/api/bookings/${bookingId}/pay`, {
         method: 'PATCH',
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
+
       const result = await res.json();
       if (!res.ok) throw new Error(result.message || 'Payment failed');
       alert('Payment successful! Ticket booked.');
