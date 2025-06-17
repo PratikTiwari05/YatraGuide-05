@@ -1,0 +1,134 @@
+/* AdminLogin.css - Glassmorphism Admin Style */
+
+:root {
+  --admin-primary: #1e3a8a; /* Darker blue for admin panel */
+  --admin-gradient: linear-gradient(135deg, #3b82f6, #1e3a8a);
+  --input-bg: rgba(255, 255, 255, 0.8);
+  --input-border: #cbd5e1;
+  --text-color: #1e293b;
+  --error: #dc2626;
+  --success: #16a34a;
+}
+
+.homepage-container {
+  position: relative; /* ✅ Added */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-position: center;
+  background-size: cover;
+  backdrop-filter: blur(5px);
+  z-index: 1; /* ✅ Added */
+}
+
+.homepage-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.55);
+  backdrop-filter: blur(4px);
+  z-index: 0;
+}
+
+.center-box {
+  position: relative;
+  z-index: 1;
+  background: rgba(255, 255, 255, 0.1) !important;
+  backdrop-filter: blur(10px) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+  padding: 40px 30px;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 400px;
+  color: white !important;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+
+.center-box h2 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  position: relative;
+  color: #ffffff; /* pure white */
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* add shadow for visibility */
+}
+
+
+.center-box h2::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #00bfff;
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
+
+
+.center-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.center-box input {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.25); /* semi white */
+  color: #0c0c0c; /* input text color */
+  font-size: 16px;
+  outline: none;
+}
+
+.center-box input::placeholder {
+  color: rgba(46, 44, 44, 0.7); /* Visible but not too bright */
+}
+
+.center-box button {
+  background: linear-gradient(to right, #00bfff, #007bff);
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.center-box button:hover {
+  background: linear-gradient(to right, #0099cc, #005fcc);
+}
+
+/* Fade-in animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .center-box {
+    padding: 2rem 1.5rem;
+  }
+
+  .center-box h2 {
+    font-size: 1.75rem;
+  }
+
+  .center-box input,
+  .center-box button {
+    font-size: 1rem;
+    padding: 0.85rem 1rem;
+  }
+}

@@ -1,0 +1,78 @@
+Base layout
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  padding: 20px;
+  z-index: 1;
+}
+
+/* Background Image */
+.app-container::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+              url('/vande-bhara.jpg') no-repeat center center fixed;
+  background-size: cover;
+  z-index: -1;
+}
+
+/* ✅ White box container */
+.overlay {
+  background: rgba(255, 255, 255, 0.97);
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+
+/* ✅ Branding inside white box */
+.header {
+  margin-bottom: 20px;
+}
+
+.brand-title {
+  margin: 0;
+  font-size: 2rem;
+  color: #003366;
+}
+
+.brand-subtitle {
+  margin: 4px 0 0;
+  font-size: 0.9rem;
+  color: #444;
+}
+
+/* Login/register form area */
+.main-content {
+  margin-top: 10px;
+}
+
+/* Footer stays outside white box */
+.footer {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 0.9rem;
+  color: #fff;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+}
+.auth-container a {
+  color: #007bff; /* Bootstrap-style blue */
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-container a:hover {
+  text-decoration: underline;
+}

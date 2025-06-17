@@ -1,0 +1,112 @@
+.coach-container {
+  text-align: center;
+  padding: 3rem 1rem;
+  font-family: 'Segoe UI', sans-serif;
+
+  /* 👇 Background color before gradient loads */
+  background-color: #e6faff;
+
+  /* 👇 Gradient layer on top */
+  background: linear-gradient(135deg, #e0f7fa, #f0ffff);
+
+  border-radius: 20px;
+  max-width: 960px;
+  margin: 40px auto;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+
+.coach-container h2 {
+  font-size: 2rem;
+  color: #023e8a;
+  margin-bottom: 1.5rem;
+}
+
+.coach-container input {
+  padding: 12px 16px;
+  width: 280px;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+  margin-right: 12px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.coach-container input:focus {
+  border-color: #00b4d8;
+}
+
+.coach-container button {
+  padding: 12px 24px;
+  background-color: #0077b6;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.coach-container button:hover {
+  background-color: #023e8a;
+  transform: translateY(-2px);
+}
+
+.coach-display {
+  margin-top: 2.5rem;
+}
+
+.coach-line {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1rem;
+}
+
+.coach-box {
+  background: linear-gradient(135deg, #caf0f8, #ade8f4);
+  color: #03045e;
+  margin: 6px;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  min-width: 60px;
+  transition: transform 0.2s ease;
+}
+
+.coach-box:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #90e0ef, #48cae4);
+}
+
+.error {
+  color: #d00000;
+  font-weight: bold;
+  margin-top: 1.5rem;
+  font-size: 16px;
+}
+
+.loading {
+  color: #0077b6;
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 1.5rem;
+}
+
+/* Optional entrance animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
