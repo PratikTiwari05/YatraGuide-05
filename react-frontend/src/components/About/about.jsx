@@ -43,9 +43,9 @@ const AboutDeveloper = () => {
 
         <h3>📬 Contact Me</h3>
         <div className="contact-links">
-          <a href="mailto:pratik12122005@gmail.com" target="_blank" rel="noopener noreferrer"><FaEnvelope /> pratik12122005@gmail.com</a>
-          <a href="https://github.com/PratikTiwari05" target="_blank" rel="noopener noreferrer"><FaGithub /> github.com/PratikTiwari05</a>
-          <a href="https://www.linkedin.com/in/pratik-tiwari05/" target="_blank" rel="noopener noreferrer"><FaLinkedin /> linkedin.com/in/pratik-tiwari05</a>
+          <a href="mailto:pratik12122005@gmail.com" target="_blank" rel="noopener noreferrer"><FaEnvelope />E-Mail</a>
+          <a href="https://github.com/PratikTiwari05" target="_blank" rel="noopener noreferrer"><FaGithub /> Github</a>
+          <a href="https://www.linkedin.com/in/pratik-tiwari05/" target="_blank" rel="noopener noreferrer"><FaLinkedin /> Linkedin</a>
         </div>
       </div>
     </div>
