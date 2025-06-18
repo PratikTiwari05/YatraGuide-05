@@ -31,7 +31,7 @@ Auth: JWT, bcrypt
 
 🚀 Quick Start
 Frontend Setup
-bashgit clone https://github.com/your-username/yatra-guide.git
+bashgit clone (https://github.com/PratikTiwari05/YatraGuide-05.git)
 cd yatra-guide/client
 npm install && npm run dev
 Backend Setup
