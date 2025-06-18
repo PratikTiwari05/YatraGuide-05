@@ -38,15 +38,10 @@ Backend Setup
 bashcd server
 npm install
 
-# Create .env file:
-# DB_HOST=your_mysql_host
-# DB_USER=your_mysql_user  
-# DB_PASSWORD=your_mysql_password
-# DB_NAME=yatra_guide
-# JWT_SECRET=your_jwt_secret
 
 npm start
 
+> ⚠️ **Note:** Make sure to update `db.js` with your own local MySQL credentials (e.g. `localhost`, username, password, and database name).
 
 🔧 API Endpoints
 Auth:     POST /api/auth/{register,login}
