@@ -1,0 +1,101 @@
+body {
+  background: linear-gradient(135deg, #1e1e2f, #2c2c3c);
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.my-bookings {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: 60px auto;
+  background: linear-gradient(145deg, #2f2f3f, #3c3c4f);
+  border-radius: 20px;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+  animation: fadeIn 0.5s ease-in-out;
+  color: #f1f1f1;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 40px;
+  color: #ffffff;
+  font-size: 2.4rem;
+  position: relative;
+  letter-spacing: 1px;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 70px;
+  height: 4px;
+  margin: 10px auto 0;
+  background-color: #00b4d8;
+  border-radius: 10px;
+}
+
+.booking-card {
+  background: #3a3a55;
+  padding: 22px 28px;
+  margin-bottom: 24px;
+  border-left: 6px solid #00b894;
+  border-radius: 16px;
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+}
+
+.booking-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.4);
+}
+
+.booking-card p {
+  margin: 8px 0;
+  font-size: 16px;
+  color: #f1f1f1;
+  line-height: 1.6;
+}
+
+.cancel-button {
+  margin-top: 18px;
+  padding: 10px 18px;
+  background: linear-gradient(135deg, #e63946, #d62828);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(230, 57, 70, 0.5);
+}
+
+.cancel-button:hover {
+  background: linear-gradient(135deg, #c72b36, #a4161a);
+  transform: scale(1.05);
+}
+
+.loading,
+.error,
+.no-bookings {
+  text-align: center;
+  margin-top: 80px;
+  font-size: 18px;
+  color: #bbb;
+  font-style: italic;
+}
+
+/* Optional fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  } 
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

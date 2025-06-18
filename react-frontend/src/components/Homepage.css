@@ -1,0 +1,153 @@
+/* Form Section */
+.center-box {
+  background: rgba(255, 255, 255, 0.92);
+  padding: 2rem;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 600px;
+  margin: 3rem auto 2rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(6px);
+}
+
+.center-box h2 {
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.center-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.center-box input,
+.center-box select {
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+}
+
+.center-box button {
+  background: linear-gradient(to right, #007bff, #0056b3);
+  color: white;
+  padding: 12px;
+  border: none;
+  font-weight: 600;
+  font-size: 1rem;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.center-box button:hover {
+  background: linear-gradient(to right, #0056b3, #003f7f);
+  transform: scale(1.03);
+}
+
+/* Timer */
+.timer {
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: bold;
+  color: #ff4d4f;
+  font-size: 1.1rem;
+}
+
+/* Trains List */
+.train-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem;
+  justify-content: center;
+  padding: 2rem 1rem;
+}
+
+.train-card {
+  background: linear-gradient(135deg, #ffffff, #f9f9f9);
+  border-radius: 18px;
+  padding: 1.8rem 2rem;
+  width: 100%;
+  max-width: 460px;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-left: 6px solid #007bff;
+  position: relative;
+  overflow: hidden;
+}
+
+.train-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.18);
+}
+
+.train-card h3 {
+  font-size: 1.6rem;
+  color: #1a1a1a;
+  margin-bottom: 0.3rem;
+  font-weight: 700;
+}
+
+.train-card p {
+  margin: 0.3rem 0;
+  color: #444;
+  font-size: 1.05rem;
+}
+
+.train-card button {
+  background: linear-gradient(to right, #28a745, #218838);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: all 0.3s ease;
+}
+
+.train-card button:hover {
+  background: linear-gradient(to right, #218838, #1e7e34);
+  transform: scale(1.05);
+}
+
+/* Payment Button */
+.payment-section {
+  text-align: center;
+  margin: 2rem auto;
+  position: relative; /* added */
+  z-index: 10;         /* added to bring above blurred/opacity backgrounds */
+}
+
+.payment-section button {
+  background: linear-gradient(135deg, #00b4d8, #0077b6);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 8px 18px rgba(0, 123, 255, 0.25);
+  z-index: 10; /* bring on top */
+  position: relative; /* required for z-index to apply */
+}
+
+.payment-section button:hover {
+  background: linear-gradient(135deg, #0096c7, #023e8a);
+  transform: scale(1.06);
+}
+
+
+/* No train found */
+.no-train-msg {
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 2rem;
+}
